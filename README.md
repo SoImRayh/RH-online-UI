@@ -1,6 +1,8 @@
 
 # Contole de colaboradores by ImRayh
 
+## Projeto complementar: <a href="https://github.com/SoImRayh/RH-Online-API">RH Online API</a>
+
 ![index](readme/index.png)
 
 ## Visão geral:
@@ -23,7 +25,7 @@ npm run dev
 yarn dev
 ```
 
-## imagens
+## imagens:
 ![list](readme/list.PNG)
 ![add](readme/new.PNG)
 ![edit](readme/edit.PNG)
