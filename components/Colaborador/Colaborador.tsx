@@ -1,6 +1,5 @@
 import ColaboradorService, {Colaborador} from "../../services/ColaboradorService";
 import {useRouter} from "next/router";
-
 interface ColaboradorProps{
 
     deleteColaborador: Function

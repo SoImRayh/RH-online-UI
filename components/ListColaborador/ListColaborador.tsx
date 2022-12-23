@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import ColaboradorService, {Colaborador} from "../../services/ColaboradorService";
 import {ColaboradorSolo} from "../Colaborador/Colaborador";
 import * as events from "events";
+import { AxiosError } from "axios";
 
 
 
@@ -14,15 +15,17 @@ export function ListColaborador(){
 
     useEffect( () => {
         setloading(true)
-        try {
+
             ColaboradorService.getAll().then( response => {
                 setcolaboradores(response.data)
                 setloading(false)
                 }
-            )
-        }catch (err){
-            console.error(err)
-        }
+            ).catch( (err : AxiosError) => {
+                if(err.response && err.response.status === 401)
+                    router.push("/signin")
+                console.error(err)
+            })
+        
     },[])
 
     const deleteColaborador = (e: MouseEvent, id: number) => {

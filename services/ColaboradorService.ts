@@ -10,24 +10,24 @@ export interface Colaborador{
 }
 class ColaboradorService{
     saveColaborador(colaborador: { firstName: string; lastName: string; emailID: string; id: string }){
-        return axios.post(`${API_BASE_URL}`, colaborador)
+        return axios.post(`${API_BASE_URL}`, colaborador,{headers:{Authorization:'Bearer '+localStorage.getItem("token")}})
     }
 
     getAll(){
-        return axios.get(`${API_BASE_URL}/all`)
+        return axios.get(`${API_BASE_URL}/all`,{headers:{Authorization:'Bearer '+localStorage.getItem("token")}})
     }
 
     delete(id: number){
-        return axios.delete(`${API_BASE_URL}/${id}`)
+        return axios.delete(`${API_BASE_URL}/${id}`,{headers:{Authorization:'Bearer '+localStorage.getItem("token")}})
     }
 
 
     getOne(id : number){
-        return axios.get(`${API_BASE_URL}/${id}`)
+        return axios.get(`${API_BASE_URL}/${id}`,{headers:{Authorization:'Bearer '+localStorage.getItem("token")}})
     }
 
     update(id: number, colaborador: Colaborador){
-        return axios.put(`${API_BASE_URL}/${id}`, colaborador)
+        return axios.put(`${API_BASE_URL}/${id}`, colaborador,{headers:{Authorization:'Bearer '+localStorage.getItem("token")}})
     }
 }
 

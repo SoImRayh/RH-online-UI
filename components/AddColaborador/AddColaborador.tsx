@@ -23,12 +23,14 @@ export function AddColaborador(){
         event.preventDefault()
         ColaboradorService.saveColaborador(colaborador).then( response => {
             if(response.status === 200){
-                route.push('/').then( a => {
+                route.push('/colaboradores/list').then( a => {
                     console.log(a)
                 })
             }
         }).catch( err => {
-            console.error(err)
+            if (err.response && err.response.status === 401){
+                route.push('/signin')
+            }
         })
     };
 
