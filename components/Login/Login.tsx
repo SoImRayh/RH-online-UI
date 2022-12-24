@@ -66,7 +66,7 @@ export function Login(props: LoginProps) {
 
               <div className="items-center jusstify-center h-14 w-full my-4 space-x-4 pt-4">
                   <button className="rounded text-white fontsemibold bg-green-400 py-2 px-6 hover:bg-green-600"
-                          onClick={e => login(e)}>
+                          onClick={e => login}>
                       Salvar
                   </button>
 

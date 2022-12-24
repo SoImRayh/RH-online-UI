@@ -1,10 +1,16 @@
 version: '3.7'
 
 services:
+  nginx:
+    container_name: nginx
+    image: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx:/etc/nginx
+      - ./nginx/cert:/cert
+      - ./nginx/html/:/usr/share/nginx/html/
   app:
     container_name: app
-    build:
-      dockerfile: .
-
-    volumes:
-      - ${PWD}:/app/
+    build: .
